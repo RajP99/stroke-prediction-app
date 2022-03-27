@@ -14,7 +14,7 @@ def predict():
 	try:
 		json = request.get_json()	 
 		temp=list(json[0].values())
-		rf = pickle.load(open('rf_baseline.pkl', 'rb'))
+		rf = pickle.load(open('stroke_rf_baseline.pkl', 'rb'))
 		prediction = rf.predict_proba([temp])
 		print("Prediction: ", prediction)        
 		return jsonify({'prediction': str(prediction[0][1]*100)})
